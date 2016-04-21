@@ -28,7 +28,7 @@ reg        [4-1:0] ALUCtrl_o;
 
 // ALUOp_i
 // 3'b000 -> lw,sw
-// 3'b001 -> branch
+// 3'b001 -> beq
 // 3'b010 -> R-Type
 // 3'b011 -> addi
 // 3'b100 -> sltiu
@@ -37,7 +37,7 @@ reg        [4-1:0] ALUCtrl_o;
 // 3'b111 -> andi
 
 // ALUCtrl_o
-// 4'b1111 default case
+// 4'bxxxx default case
 
 //Select exact operation
 always @ (*) begin
@@ -51,6 +51,8 @@ always @ (*) begin
           6'b100100: ALUCtrl_o = 4'b0000;
           6'b100101: ALUCtrl_o = 4'b0001;
           6'b101010: ALUCtrl_o = 4'b0111;
+          6'b000011: ALUCtrl_o = 4'b0111; // SRA
+          6'b000111: ALUCtrl_o = 4'b0111; // SRAV
           default:   ALUCtrl_o = 4'bxxxx;
       endcase
     end

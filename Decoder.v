@@ -57,12 +57,19 @@ always @(*) begin
             RegDst_o = 1;
             Branch_o = 0;
         end
-        6'b000100: begin // branch
+        6'b000100: begin // beq
             ALU_op_o = 3'b001;
             ALUSrc_o = 0;
             RegWrite_o = 0;
             RegDst_o = 0; //x
             Branch_o = 1;
+        end
+        6'b000101: begin // bne
+            // ALU_op_o = 3'b001;
+            // ALUSrc_o = 0;
+            // RegWrite_o = 0;
+            // RegDst_o = 0; //x
+            // Branch_o = 1;
         end
         6'b001000: begin // addi
             ALU_op_o = 3'b011;
@@ -77,6 +84,20 @@ always @(*) begin
             RegWrite_o = 0;
             RegDst_o = 1;
             Branch_o = 0;
+        end
+        6'b001111: begin // lui
+            ALU_op_o = 3'b101;
+            // ALUSrc_o = 0;
+            // RegWrite_o = 0;
+            // RegDst_o = 1;
+            // Branch_o = 0;
+        end
+        6'b001101: begin // ori
+            ALU_op_o = 3'b110;
+            // ALUSrc_o = 0;
+            // RegWrite_o = 0;
+            // RegDst_o = 1;
+            // Branch_o = 0;
         end
         default: begin
             ALU_op_o = 3'b000;
