@@ -43,5 +43,6 @@ always @(ctrl_i, src1_i, src2_i) begin
         7: result_o <= A < B ? 1:0;
         12: result_o <= ~(A | B);
         default: result_o <= 0;
-
+    endcase
+end
 endmodule
