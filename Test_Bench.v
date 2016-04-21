@@ -31,9 +31,9 @@ always #(`CYCLE_TIME/2) CLK = ~CLK;
 
 initial  begin
     handle = $fopen("CO_P2_Result.txt");
-	  CLK = 0;
+	CLK = 0;
     RST = 0;
-	  count = 0;
+	count = 0;
     end_count=25;
     #(`CYCLE_TIME)      RST = 1;
     #(`CYCLE_TIME*`END_COUNT)	$fclose(handle); $stop;
