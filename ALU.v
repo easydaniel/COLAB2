@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 
 module ALU(
-    src1_i,
+  src1_i,
 	src2_i,
 	ctrl_i,
 	result_o,
@@ -32,16 +32,16 @@ wire             zero_o;
 //Parameter
 
 //Main function
-assign zero_o = (zero_o==0);
+assign zero_o = (result_o == 0);
 
-always @(ctrl_i, src1_i, src2_i) begin
+always @(ctrl_i or src1_i or src2_i) begin
     case(ctrl_i)
-        0: result_o <= src1_i & src2_i;
-        1: result_o <= src1_i | src2_i;
-        2: result_o <= src1_i + src2_i;
-        6: result_o <= src1_i - src2_i;
-        7: result_o <= A < B ? 1:0;
-        12: result_o <= ~(A | B);
+        4'b0000: result_o <= src1_i & src2_i;
+        4'b0001: result_o <= src1_i | src2_i;
+        4'b0010: result_o <= src1_i + src2_i;
+        4'b0110: result_o <= src1_i - src2_i;
+        4'b0111: result_o <= A < B ? 1:0;
+        4'b1100: result_o <= ~(A | B);
         default: result_o <= 0;
     endcase
 end

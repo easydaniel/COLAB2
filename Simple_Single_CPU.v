@@ -29,7 +29,7 @@ ProgramCounter PC(
 	    );
 
 Adder Adder1(
-        .src1_i(),
+      .src1_i(),
 	    .src2_i(),
 	    .sum_o()
 	    );
