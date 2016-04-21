@@ -45,10 +45,10 @@ always @ (ALUOp_i or funct_i) begin
     3'b000: ALUCtrl_o <= 4'b0010;
     3'b001: ALUCtrl_o <= 4'b0110;
     3'b010: begin
-      case (funct_i)
-        6'b100000: ALUCtrl_o <= 4'b0010;
-        6'b100010: ALUCtrl_o <= 4'b0110;
-        6'b100100: ALUCtrl_o <= 4'b0000;
+        case (funct_i)
+            6'b100000: ALUCtrl_o <= 4'b0010;
+            6'b100010: ALUCtrl_o <= 4'b0110;
+            6'b100100: ALUCtrl_o <= 4'b0000;
         6'b100101: ALUCtrl_o <= 4'b0001;
         6'b101010: ALUCtrl_o <= 4'b0111;
         default:   ALUCtrl_o <= 4'b1111;

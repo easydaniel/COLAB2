@@ -29,13 +29,13 @@ ProgramCounter PC(
 	    );
 
 Adder Adder1(
-      .src1_i(),
+        .src1_i(),
 	    .src2_i(),
 	    .sum_o()
 	    );
 
 Instr_Memory IM(
-      .pc_addr_i(),
+        .pc_addr_i(),
 	    .instr_o()
 	    );
 
@@ -59,7 +59,7 @@ Reg_File RF(
         );
 
 Decoder Decoder(
-      .instr_op_i(),
+        .instr_op_i(),
 	    .RegWrite_o(),
 	    .ALU_op_o(),
 	    .ALUSrc_o(),
@@ -86,15 +86,15 @@ MUX_2to1 #(.size(32)) Mux_ALUSrc(
         );
 
 ALU ALU(
-      .src1_i(),
+        .src1_i(),
 	    .src2_i(),
 	    .ctrl_i(),
 	    .result_o(),
-		  .zero_o()
+        .zero_o()
 	    );
 
 Adder Adder2(
-      .src1_i(),
+        .src1_i(),
 	    .src2_i(),
 	    .sum_o()
 	    );
