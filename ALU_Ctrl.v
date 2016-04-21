@@ -26,10 +26,17 @@ reg        [4-1:0] ALUCtrl_o;
 
 //Parameter
 
-// 0 -> lw,sw
-// 1 -> branch
-// 2 -> R-Type
+// ALUOp_i
+// 3'b000 -> lw,sw
+// 3'b001 -> branch
+// 3'b010 -> R-Type
+// 3'b011 -> addi
+// 3'b100 -> sltiu
+// 3'b101 -> lui
+// 3'b110 -> ori
+// 3'b111 -> andi
 
+// ALUCtrl_o
 // 4'b1111 default case
 
 //Select exact operation
@@ -47,6 +54,10 @@ always @ (ALUOp_i or funct_i) begin
         default:   ALUCtrl_o <= 4'b1111;
       endcase
     end
+    3'b011: ALUCtrl_o <= 4'b0010;
+    3'b100: ALUCtrl_o <= 4'b0111;
+    3'b110: ALUCtrl_o <= 4'b0001;
+    3'b111: ALUCtrl_o <= 4'b0000;
     default: ALUCtrl_o <= 4'b1111;
   endcase
 end

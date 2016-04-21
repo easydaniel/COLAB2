@@ -35,7 +35,7 @@ Adder Adder1(
 	    );
 
 Instr_Memory IM(
-        .pc_addr_i(),
+      .pc_addr_i(),
 	    .instr_o()
 	    );
 
@@ -48,7 +48,7 @@ MUX_2to1 #(.size(5)) Mux_Write_Reg(
 
 Reg_File RF(
         .clk_i(),
-	    .rst_i() ,
+	      .rst_i() ,
         .RSaddr_i() ,
         .RTaddr_i() ,
         .RDaddr_i() ,
@@ -59,12 +59,12 @@ Reg_File RF(
         );
 
 Decoder Decoder(
-        .instr_op_i(),
+      .instr_op_i(),
 	    .RegWrite_o(),
 	    .ALU_op_o(),
 	    .ALUSrc_o(),
 	    .RegDst_o(),
-		.Branch_o()
+		  .Branch_o()
 	    );
 
 ALU_Ctrl AC(
@@ -86,15 +86,15 @@ MUX_2to1 #(.size(32)) Mux_ALUSrc(
         );
 
 ALU ALU(
-        .src1_i(),
+      .src1_i(),
 	    .src2_i(),
 	    .ctrl_i(),
 	    .result_o(),
-		.zero_o()
+		  .zero_o()
 	    );
 
 Adder Adder2(
-        .src1_i(),
+      .src1_i(),
 	    .src2_i(),
 	    .sum_o()
 	    );
