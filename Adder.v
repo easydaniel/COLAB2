@@ -22,10 +22,12 @@ output [32-1:0]	 sum_o;
 
 //Internal Signals
 wire    [32-1:0]	 sum_o;
+reg [32-1:0] s;
 
 //Parameter
-
+assign sum_o = (s);
 //Main function
+/*
 assign sum_o[0] = src1_i[0] ^ src2_i[0];
 assign sum_o[1] = (src1_i[1] ^ src2_i[1]) ^ (src1_i[0] & src2_i[0]);
 assign sum_o[2] = (src1_i[2] ^ src2_i[2]) ^ (src1_i[1] & src2_i[1]);
@@ -58,6 +60,9 @@ assign sum_o[28] = (src1_i[28] ^ src2_i[28]) ^ (src1_i[27] & src2_i[27]);
 assign sum_o[29] = (src1_i[29] ^ src2_i[29]) ^ (src1_i[28] & src2_i[28]);
 assign sum_o[30] = (src1_i[30] ^ src2_i[30]) ^ (src1_i[29] & src2_i[29]);
 assign sum_o[31] = (src1_i[31] ^ src2_i[31]) ^ (src1_i[30] & src2_i[30]);
-
+*/
+always @ ( * ) begin
+  s = src1_i + src2_i;
+end
 
 endmodule
