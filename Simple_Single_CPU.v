@@ -32,16 +32,12 @@ wire [32-1:0] RSdata_o;
 wire [32-1:0] RTdata_o;
 wire [5-1:0]  RDaddr_res;
 wire [4-1:0]  ctrl_i;
-wire          PC_sel;
 reg           RegWrite_o;
 reg  [3-1:0]  ALU_op_o;
 reg           RegDst_o;
 reg           Branch_o;
 reg           zero_o;
 
-
-assign add_one_src = 32'd4;
-assign PC_sel      = (Branch_o & zero_o);
 
 //Greate componentes
 ProgramCounter PC(
@@ -53,7 +49,7 @@ ProgramCounter PC(
 
 Adder Adder1(
       .src1_i(pc_out_i),
-	    .src2_i(add_one_src),
+	    .src2_i(32'd4),
 	    .sum_o(add_one_res)
 	    );
 
@@ -63,8 +59,8 @@ Instr_Memory IM(
 	    );
 
 MUX_2to1 #(.size(5)) Mux_Write_Reg(
-        .data0_i(instr_o[19:14]),
-        .data1_i(instr_o[13:8]),
+        .data0_i(instr_o[20:16]),
+        .data1_i(instr_o[15:11]),
         .select_i(RegDst_o),
         .data_o(RDaddr_res)
         );
@@ -72,8 +68,8 @@ MUX_2to1 #(.size(5)) Mux_Write_Reg(
 Reg_File RF(
         .clk_i(clk_i),
 	      .rst_i(rst_i) ,
-        .RSaddr_i(instr_o[24:19]) ,
-        .RTaddr_i(instr_o[19:14]) ,
+        .RSaddr_i(instr_o[25:21]) ,
+        .RTaddr_i(instr_o[20:16]) ,
         .RDaddr_i(RDaddr_res) ,
         .RDdata_i(alu_res)  ,
         .RegWrite_i(RegWrite_o),
@@ -82,7 +78,7 @@ Reg_File RF(
         );
 
 Decoder Decoder(
-      .instr_op_i(instr_o[31:25]),
+      .instr_op_i(instr_o[31:26]),
 	    .RegWrite_o(RegWrite_o),
 	    .ALU_op_o(ALU_op_o),
 	    .ALUSrc_o(ALUSrc_o),
@@ -130,7 +126,7 @@ Shift_Left_Two_32 Shifter(
 MUX_2to1 #(.size(32)) Mux_PC_Source(
         .data0_i(add_one_res),
         .data1_i(add_two_res),
-        .select_i(PC_sel),
+        .select_i(Branch_o & zero_o),
         .data_o(pc_in_i)
         );
 
