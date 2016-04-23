@@ -107,6 +107,7 @@ MUX_2to1 #(.size(32)) Mux_ALUSrc(
 ALU ALU(
       .src1_i(RSdata_o),
 	    .src2_i(alu_src),
+      .shmat_i(instr_o[10:6]);
 	    .ctrl_i(ctrl_i),
 	    .result_o(alu_res),
       .zero_o(zero_o)
