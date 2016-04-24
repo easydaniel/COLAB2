@@ -32,11 +32,11 @@ wire [32-1:0] RSdata_o;
 wire [32-1:0] RTdata_o;
 wire [5-1:0]  RDaddr_res;
 wire [4-1:0]  ctrl_i;
-reg           RegWrite_o;
-reg  [3-1:0]  ALU_op_o;
-reg           RegDst_o;
-reg           Branch_o;
-reg           zero_o;
+wire           RegWrite_o;
+wire  [3-1:0]  ALU_op_o;
+wire           RegDst_o;
+wire           Branch_o;
+wire           zero_o;
 
 
 //Greate componentes
@@ -107,7 +107,7 @@ MUX_2to1 #(.size(32)) Mux_ALUSrc(
 ALU ALU(
       .src1_i(RSdata_o),
 	    .src2_i(alu_src),
-      .shmat_i(instr_o[10:6]);
+       .shmat_i(instr_o[10:6]),
 	    .ctrl_i(ctrl_i),
 	    .result_o(alu_res),
       .zero_o(zero_o)

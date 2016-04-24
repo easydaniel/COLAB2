@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/easy_kevin_lab2/TestBench_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="TestBench" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="30" />
+   <wvobject fp_name="/TestBench/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/RST" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/handle" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">handle[31:0]</obj_property>
+      <obj_property name="ObjectShortName">handle[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/end_count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">end_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">end_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/ALU/src1_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">src1_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">src1_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/ALU/src2_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">src2_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">src2_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/ALU/shmat_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">shmat_i[4:0]</obj_property>
+      <obj_property name="ObjectShortName">shmat_i[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/ALU/ctrl_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ctrl_i[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ctrl_i[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/ALU/result_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">result_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">result_o[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/RSdata_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RSdata_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RSdata_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/RTdata_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RTdata_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RTdata_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/IM/instr_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/Decoder/instr_op_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr_op_i[5:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_op_i[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/Decoder/RegWrite_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RegWrite_o</obj_property>
+      <obj_property name="ObjectShortName">RegWrite_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/Decoder/ALU_op_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALU_op_o[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_op_o[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/Decoder/ALUSrc_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ALUSrc_o</obj_property>
+      <obj_property name="ObjectShortName">ALUSrc_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/Decoder/RegDst_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RegDst_o</obj_property>
+      <obj_property name="ObjectShortName">RegDst_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/Decoder/Branch_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Branch_o</obj_property>
+      <obj_property name="ObjectShortName">Branch_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/SE/data_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_i[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_i[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/AC/ALUCtrl_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALUCtrl_o[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUCtrl_o[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/RSaddr_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RSaddr_i[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RSaddr_i[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/RTaddr_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RTaddr_i[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RTaddr_i[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/RDaddr_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RDaddr_i[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RDaddr_i[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/RDdata_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RDdata_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RDdata_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/RSdata_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RSdata_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RSdata_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/RTdata_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RTdata_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RTdata_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/RF/Reg_File" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Reg_File[0:31,31:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg_File[0:31,31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/Adder1/sum_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sum_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sum_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench/cpu/Adder2/sum_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sum_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sum_o[31:0]</obj_property>
+   </wvobject>
+</wave_config>
