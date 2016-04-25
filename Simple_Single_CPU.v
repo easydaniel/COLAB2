@@ -18,25 +18,26 @@ input         clk_i;
 input         rst_i;
 
 //Internal Signles
-wire [32-1:0] pc_in_i;
-wire [32-1:0] pc_out_i;
-wire [32-1:0] add_one_src;
-wire [32-1:0] add_one_res;
-wire [32-1:0] add_two_res;
-wire [32-1:0] instr_o;
-wire [32-1:0] shift_in;
-wire [32-1:0] shift_out;
-wire [32-1:0] alu_src;
-wire [32-1:0] alu_res;
-wire [32-1:0] RSdata_o;
-wire [32-1:0] RTdata_o;
-wire [5-1:0]  RDaddr_res;
-wire [4-1:0]  ctrl_i;
+wire [32-1:0]  pc_in_i;
+wire [32-1:0]  pc_out_i;
+wire [32-1:0]  add_one_src;
+wire [32-1:0]  add_one_res;
+wire [32-1:0]  add_two_res;
+wire [32-1:0]  instr_o;
+wire [32-1:0]  shift_in;
+wire [32-1:0]  shift_out;
+wire [32-1:0]  alu_src;
+wire [32-1:0]  alu_res;
+wire [32-1:0]  RSdata_o;
+wire [32-1:0]  RTdata_o;
+wire [5-1:0]   RDaddr_res;
+wire [4-1:0]   ctrl_i;
 wire           RegWrite_o;
 wire  [3-1:0]  ALU_op_o;
 wire           RegDst_o;
 wire           Branch_o;
 wire           zero_o;
+wire           Zero_ext_o;
 
 
 //Greate componentes
@@ -83,7 +84,8 @@ Decoder Decoder(
 	    .ALU_op_o(ALU_op_o),
 	    .ALUSrc_o(ALUSrc_o),
 	    .RegDst_o(RegDst_o),
-		  .Branch_o(Branch_o)
+		  .Branch_o(Branch_o),
+      .Zero_ext_o(Zero_ext_o)
 	    );
 
 ALU_Ctrl AC(
@@ -94,6 +96,7 @@ ALU_Ctrl AC(
 
 Sign_Extend SE(
         .data_i(instr_o[15:0]),
+        .zero_ext_i(Zero_ext_o),
         .data_o(shift_in)
         );
 
@@ -107,7 +110,7 @@ MUX_2to1 #(.size(32)) Mux_ALUSrc(
 ALU ALU(
       .src1_i(RSdata_o),
 	    .src2_i(alu_src),
-       .shmat_i(instr_o[10:6]),
+      .shmat_i(instr_o[10:6]),
 	    .ctrl_i(ctrl_i),
 	    .result_o(alu_res),
       .zero_o(zero_o)

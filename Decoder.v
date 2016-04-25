@@ -15,7 +15,8 @@ module Decoder(
 	ALU_op_o,
 	ALUSrc_o,
 	RegDst_o,
-	Branch_o
+	Branch_o,
+  Zero_ext_o
 	);
 
 //I/O ports
@@ -26,6 +27,7 @@ output [3-1:0] ALU_op_o;
 output         ALUSrc_o;
 output         RegDst_o;
 output         Branch_o;
+output         Zero_ext_o;
 
 //Internal Signals
 reg    [3-1:0] ALU_op_o;
@@ -56,6 +58,7 @@ always @(*) begin
             RegWrite_o = 1;
             RegDst_o = 1;
             Branch_o = 0;
+            Zero_ext_o = 0;
         end
         6'b000100: begin // beq
             ALU_op_o = 3'b001;
@@ -63,6 +66,7 @@ always @(*) begin
             RegWrite_o = 0;
             RegDst_o = 0; //x
             Branch_o = 1;
+            Zero_ext_o = 0;
         end
         6'b001000: begin // addi
             ALU_op_o = 3'b011;
@@ -70,6 +74,7 @@ always @(*) begin
             RegWrite_o = 1;
             RegDst_o = 0;
             Branch_o = 0;
+            Zero_ext_o = 0;
         end
         6'b001001: begin // sltiu
             ALU_op_o = 3'b100;
@@ -77,6 +82,7 @@ always @(*) begin
             RegWrite_o = 1;
             RegDst_o = 0;
             Branch_o = 0;
+            Zero_ext_o = 0;
         end
         6'b001111: begin // lui
             ALU_op_o = 3'b101;
@@ -84,6 +90,7 @@ always @(*) begin
             RegWrite_o = 1;
             RegDst_o = 0;
             Branch_o = 0;
+            Zero_ext_o = 0;
         end
         6'b001101: begin // ori
             ALU_op_o = 3'b110;
@@ -91,6 +98,7 @@ always @(*) begin
             RegWrite_o = 1;
             RegDst_o = 0;
             Branch_o = 0;
+            Zero_ext_o = 1;
         end
 		  6'b000101: begin // bne
             ALU_op_o = 3'b000;
@@ -98,6 +106,7 @@ always @(*) begin
             RegWrite_o = 0;
             RegDst_o = 0; //x
             Branch_o = 1;
+            Zero_ext_o = 0;
         end
         default: begin
             ALU_op_o = 3'bxxx;
@@ -105,6 +114,7 @@ always @(*) begin
             RegWrite_o = 0;
             RegDst_o = 0;
             Branch_o = 0;
+            Zero_ext_o = 0;
         end
     endcase
 end
